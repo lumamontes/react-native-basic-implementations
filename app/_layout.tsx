@@ -1,5 +1,6 @@
 import * as SplashScreen from "expo-splash-screen";
 import { Stack } from 'expo-router';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -7,12 +8,12 @@ export {
 } from "expo-router";
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: "/",
 };
 
 export default function RootLayout() {
   return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <Stack
       screenOptions={{
         headerStyle: {
@@ -24,5 +25,6 @@ export default function RootLayout() {
         },
       }}
     />
+    </GestureHandlerRootView>
   );
 }
