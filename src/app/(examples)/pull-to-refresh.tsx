@@ -28,7 +28,7 @@ export default function PullToRefresh() {
         This example demonstrates how to use the `RefreshControl` component to
         add pull-to-refresh functionality to a FlatList component.
       </Text>
-      <Text>Pull down to refresh the list.</Text>
+      <Text style={{ paddingBottom: 6 }}>Pull down to refresh the list.</Text>
       <FlatList
         data={dummyData}
         renderItem={({ item }) => (
@@ -36,13 +36,15 @@ export default function PullToRefresh() {
             <Text>{item.title}</Text>
           </View>
         )}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
         keyExtractor={(item) => item.title}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
       />
       <Text>
-        Example from the react native documentation at https://reactnative.dev/docs/refreshcontrol
+        Example from the react native documentation at
+        https://reactnative.dev/docs/refreshcontrol
       </Text>
     </View>
   );
@@ -66,14 +68,19 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   item: {
-    width: 200,
+    width: 300,
     height: 100,
-    backgroundColor: "pink",
-    marginVertical: 8,
-    marginHorizontal: 16,
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
     borderRadius: 6,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    justifyContent: "space-around",
+    flexDirection: "column",
+    backgroundColor: "white",
+  },
+  separator: {
+    backgroundColor: "rgb(200, 199, 204)",
+    height: StyleSheet.hairlineWidth,
   },
 });

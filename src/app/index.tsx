@@ -5,15 +5,25 @@ import {
   Text,
   View,
   SafeAreaView,
-  Pressable,
   TouchableOpacity,
-  FlatList,
 } from "react-native";
-import { FlashList } from "@shopify/flash-list";
 import { Link, router } from "expo-router";
 import Badge from "@/components/Badge";
 
-const data = [
+interface Item {
+  title: string;
+  description: string;
+  route: string;
+  badges?: { label: string; variant: "primary" | "secondary" }[];
+  isComingSoon?: boolean;
+}
+
+type RenderItemParams = {
+  item: Item;
+  index: number;
+};
+
+const data: Item[] = [
   {
     title: "Pull to Refresh",
     description:
@@ -33,35 +43,84 @@ const data = [
       {
         label: "react-native-reanimated",
         variant: "secondary",
-      }
+      },
+    ],
+  },
+  {
+    title: "Drag and drop for reordering",
+    description:
+      "This example demonstrates how to use the `Reorder` component to add drag-and-drop functionality to a FlatList component.",
+    route: "drag-and-drop",
+    badges: [
+      {
+        label: "react-native-gesture-handler",
+        variant: "primary",
+      },
+      {
+        label: "react-native-reanimated",
+        variant: "secondary",
+      },
+      {
+        label: "react-native-draggable-flatlist",
+        variant: "primary",
+      },
+    ],
+  },
+  {
+    title: "Expandable List",
+    description:
+      "This example demonstrates how to use the `ExpandableList` component to add expandable list functionality to a FlatList component.",
+    route: "expandable-list",
+    badges: [
+      {
+        label: "react-native-reanimated",
+        variant: "secondary",
+      },
     ],
   },
 ];
 
 export default function App() {
-  const renderItem = ({ item, index }) => (
+  const renderItem = ({ item, index }: RenderItemParams) => (
     <Link
       key={index}
       asChild
       style={styles.item}
       href={{ pathname: item.route, params: { name: item.title } }}
     >
-      <TouchableOpacity>
+      <TouchableOpacity disabled={item.isComingSoon}>
         <View style={styles.container}>
-          <Text style={styles.item_title}>{item.title}</Text>
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignContent: "center",
+            }}
+          >
+            <Text style={styles.item_title}>{item.title}</Text>
+          </View>
+
           <Text style={styles.item_description}>{item.description}</Text>
-          <View style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: 4 }}>
-          {item.badges &&
-            item.badges.map((badge, index) => {
-              return (
-                <Badge
-                  key={index}
-                  label={badge.label}
-                  variant={badge.variant}
-                />
-              );
-            })}
-            </View>
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              gap: 4,
+            }}
+          >
+            {item.badges &&
+              item.badges.map((badge, index) => {
+                return (
+                  <Badge
+                    key={index}
+                    label={badge.label}
+                    variant={badge.variant}
+                  />
+                );
+              })}
+          </View>
         </View>
       </TouchableOpacity>
     </Link>
@@ -80,7 +139,6 @@ export default function App() {
         {data.map((item, index) => {
           return renderItem({ item, index });
         })}
-
         <StatusBar style="auto" />
       </ScrollView>
     </SafeAreaView>
@@ -104,7 +162,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   item: {
-    height: 200,
+    height: "auto",
     backgroundColor: "#FFFE",
     borderColor: "gray",
     borderWidth: 1,
