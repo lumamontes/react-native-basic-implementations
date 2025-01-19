@@ -2,6 +2,7 @@ import { ReactNode, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Animated, {SlideInDown, FlipInEasyY, SlideInLeft, SlideInRight} from "react-native-reanimated";
+import { Slot } from "expo-router";
 
 interface ExpandableContainerProps {
   title: string;
@@ -41,7 +42,7 @@ const ExpandableContainer: React.FC<ExpandableContainerProps> & {
 };
 
 ExpandableContainer.Description = ({ children }: DescriptionProps) => (
-  <Text>{children}</Text>
+  <Text>{children}aaa</Text>
 );
 
 const styles = StyleSheet.create({
