@@ -1,7 +1,8 @@
-import * as SplashScreen from "expo-splash-screen";
 import { Stack } from "expo-router";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import App from "./index";
+import Toast from 'react-native-toast-message';
+import toastConfig from '@/components/toastConfig';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -23,6 +24,7 @@ export default function RootLayout() {
           }}
         />
       </Stack>
+      <Toast config={toastConfig} topOffset={60} />
     </GestureHandlerRootView>
   );
 }
