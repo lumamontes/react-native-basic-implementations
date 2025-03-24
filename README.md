@@ -34,3 +34,6 @@ Este repositório contém exemplos de funcionalidades básicas no React Native, 
 
 Contribuições são sempre bem-vindas :) Se você deseja contribuir, sinta-se à vontade para enviar um pull request.
 
+
+
+
