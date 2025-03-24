@@ -78,6 +78,18 @@ const data: Item[] = [
       },
     ],
   },
+  {
+    title: "Review Modal Example",
+    description:
+      "A feedback modal with star rating, comment input and toast notification.",
+    route: "review-modal",
+    badges: [
+      {
+        label: "react-native-toast-message",
+        variant: "primary",
+      },
+    ],
+  },  
 ];
 
 export default function App() {
