@@ -78,6 +78,12 @@ const data: Item[] = [
       },
     ],
   },
+  {
+    title: "Toast Notification",
+    description:
+      "This example demonstrates a toast notification that serves as a short message to provide feedback to the user.",
+    route: "toast-notification",
+  },
 ];
 
 export default function App() {
