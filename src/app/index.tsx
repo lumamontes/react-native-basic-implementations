@@ -78,6 +78,17 @@ const data: Item[] = [
       },
     ],
   },
+  {
+    title: "Login Notification Email",
+    description: "This example demonstrates how to implement a login notification email system to alert users after a successful login or suspicious activity.",
+    route: "email-test", 
+    badges: [
+      {
+        label: "EmailJS",
+        variant: "primary",
+      },
+    ],
+  },
 ];
 
 export default function App() {
