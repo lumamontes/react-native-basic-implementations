@@ -27,7 +27,7 @@ const data: Item[] = [
   {
     title: "Animated Carousel",
     description:
-      "Este exemplo demonstra a utilização do componente `Animated`, juntamente com diversos para a criação de um carrossel de imagens interativo e que também se movimenta automaticamente.",
+      "Este exemplo demonstra a utilização do componente `Animated`, juntamente com diversos outros para a criação de um carrossel de imagens interativo e que também se movimenta automaticamente.",
     route: "animated-carousel",
     badges: [
       {
