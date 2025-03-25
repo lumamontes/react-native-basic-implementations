@@ -25,6 +25,22 @@ type RenderItemParams = {
 
 const data: Item[] = [
   {
+    title: "Animated Carousel",
+    description:
+      "Este exemplo demonstra a utilização do componente `Animated`, juntamente com diversos outros para a criação de um carrossel de imagens interativo e que também se movimenta automaticamente.",
+    route: "animated-carousel",
+    badges: [
+      {
+        label: "react-native-reanimated",
+        variant: "primary",
+      },
+      {
+        label: "expo-linear-gradient",
+        variant: "secondary",
+      },
+    ],
+  },
+  {
     title: "Pull to Refresh",
     description:
       "The component `RefreshControl` provides pull-to-refresh functionality for a ScrollView or FlatList component. It can be used to refresh the contents of a list or refresh the contents of a page.",
@@ -179,3 +195,4 @@ const styles = StyleSheet.create({
     color: "gray",
   },
 });
+
