@@ -1,6 +1,7 @@
 import * as SplashScreen from "expo-splash-screen";
 import { Stack } from "expo-router";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import Toast from 'react-native-toast-message';
 import App from "./index";
 
 export {
@@ -22,7 +23,14 @@ export default function RootLayout() {
             title: "Home",
           }}
         />
+        <Stack.Screen
+          name="toast-notification"
+          options={{
+            title: "Notificação Toast",
+          }}
+        />
       </Stack>
+      <Toast />
     </GestureHandlerRootView>
   );
 }
