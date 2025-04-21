@@ -78,6 +78,18 @@ const data: Item[] = [
       },
     ],
   },
+  {
+    title: "carousel-gallery",
+    description:
+      "This example on how to add a carousel and how to use camera api to add images.",
+    route: "carousel-gallery",
+    badges: [
+      {
+        label: "react-native-snap-carousel",
+        variant: "secondary",
+      },
+    ],
+  },
 ];
 
 export default function App() {
